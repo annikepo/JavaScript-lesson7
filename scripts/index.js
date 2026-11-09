@@ -116,3 +116,17 @@ text.addEventListener("input", (e) => {
     updateTime(); 
   }
 });  
+
+// ==========================================
+// PART 3: Settings and Difficulty
+// ==========================================
+
+let difficulty = difficultySelect.value; // Set initial difficulty
+
+settingsBtn.addEventListener("click", () => {
+  settings.classList.toggle("hide");
+});
+
+settingsForm.addEventListener("change", (e) => {
+  difficulty = e.target.value;
+});
