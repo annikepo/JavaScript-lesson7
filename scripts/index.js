@@ -40,3 +40,33 @@ let score = 0;
 
 //Initializing time
 let time = 10;
+
+// Automatically focus the input field when the game loads
+text.focus();
+
+// ==========================================
+// PART 1: Word, Score, and Event Listener
+// ==========================================
+
+function addWordToDOM() {
+  randomWord = words[Math.floor(Math.random() * words.length)];
+  word.innerHTML = randomWord;
+}
+
+function updateScore() {
+  score++;
+  scoreEl.innerHTML = score;
+}
+
+text.addEventListener("input", (e) => {
+  const insertedText = e.target.value;
+
+  if (insertedText === randomWord) {
+    updateScore();
+    addWordToDOM();
+    e.target.value = ""; 
+    time += 5; // Adds 5 seconds by default
+  }
+});
+
+addWordToDOM(); // Initialize the first word
